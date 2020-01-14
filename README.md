@@ -18,7 +18,8 @@ Once installed the libraries can called from python
 To run tests
 ```
     python setup.py test
-    
+```
+
 ## Quality control
 
 We have testing in place to make sure the code is functioning as expected.
