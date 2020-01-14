@@ -1,5 +1,7 @@
-# lungsim-post
+# lungsim-post ![Build Status](https://travis-ci.org/LungNoodle/lungsim-post.svg?branch=develop)
  Python library to bring together useful post-proccessing routines that act on models derived and solved via the lungsim libraries
+ 
+ Link to most recent Travis build https://travis-ci.org/LungNoodle/lungsim-post
 
 ### Installation
 
