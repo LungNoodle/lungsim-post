@@ -1,8 +1,39 @@
 #!/usr/bin/env python
 import numpy as np
 
+"""
+.. module:: imports_and_exports
+  :synopsis: Contains code to read in model results/geometries and to export files that allow visualisation of outputs
+
+:synopsis:Contains code to read in model results/geometries and to export\n
+ files that allow visualisation of outputs. Typically these model results \n
+ would have been generated using the lungsim libararies
+
+"""
 
 def export_ex_coords(data, groupname, filename, type):
+    """
+    :Function name: **export_ex_coords*
+
+    Exports the x-, y-, z- coordinates of defined data points to the ABI 'ex' format. This could be a .exnode or .exdata file
+
+    :inputs:
+       - data: A 3xN or 4xN array of N data points (if 4 then the datapoints are explicitly numbered)
+       - groupname: For visualisation a text string gives the points a group name so they can be seperated from others
+       - filename: A string defining the file name (no extension)
+       - type: A string, either exnode or exdata
+
+    A way you might want to use me is:
+
+    >>> n = 100
+    >>> volume = 10
+    >>> thickness = 3
+    >>> ellipticity = 1.1
+    >>> equispaced_data_in_ellipsoid(n, volume, thickness, ellipticity)
+
+    This will return 100 data points in an ellipse with z-axis thickness 3, volume 10, and with the y-axis dimension 1.1 times the x-axis dimension.
+
+    """
     # Exports coordinates to exnode or exdata format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
