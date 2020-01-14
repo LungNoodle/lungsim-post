@@ -131,4 +131,5 @@ dmypy.json
 #Apple
 .DS_Store
 
-
+#pycharm stuff
+> .idea

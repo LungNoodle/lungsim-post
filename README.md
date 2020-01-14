@@ -5,13 +5,19 @@
 
 Use pip to install the libraries
 ```
-  pip install git+https://github.com/LungNoodley/lungsim-post.git
+  pip install git+https://github.com/LungNoodle/lungsim-post.git
 ```
+
+Or, if you have want to have a local install to develop, then clone the repository to your machine and pip install locally:
+```
+  pip install /path/to/lungsim-post
+```
+
 ### Running
 
 Once installed the libraries can called from python
 ```
-  import lungsim-post
+  import lungsimpost
 ```
 
 ### Expected output
