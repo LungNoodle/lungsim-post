@@ -19,28 +19,6 @@ def export_ex_coords(data, groupname, filename, type):
     f.write(" x.  Value index=1, #Derivatives=0\n")
     f.write(" y.  Value index=1, #Derivatives=0\n")
     f.write(" z.  Value index=1, #Derivatives=0\n")
-dyn130097:lungsim-post2 acla148$ cat src/lungsim-post/imports_and_exports.py 
-#!/usr/bin/env python
-import numpy as np
-
-def export_ex_coords(data, groupname, filename, type):
-    # Exports coordinates to exnode or exdata format
-    # data = array of data
-    # groupname = what you want your data to be called in cmgui
-    # filename = file name without extension
-    # type = exnode or exdata
-    data_length = len(
-        data[0])  # if this is 3 then number nodes or data automatically if 4 then node numbers are given as
-    # first entry
-    data_num = len(data)
-    filename = filename + '.' + type
-    f = open(filename, 'w')
-    f.write(" Group name: %s\n" % groupname)
-    f.write(" #Fields=1\n")
-    f.write(" 1) coordinates, coordinate, rectangular cartesian, #Components=3\n")
-    f.write(" x.  Value index=1, #Derivatives=0\n")
-    f.write(" y.  Value index=1, #Derivatives=0\n")
-    f.write(" z.  Value index=1, #Derivatives=0\n")
 
     for x in range(0, data_num):
         if data_length is 4:
