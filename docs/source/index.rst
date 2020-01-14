@@ -13,6 +13,7 @@ This codebase is a python library which can be used to carry out common post-pro
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+      building
       contributors
 
 
