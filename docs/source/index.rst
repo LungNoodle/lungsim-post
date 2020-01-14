@@ -19,6 +19,8 @@ Contents:
    developing
    pythonstyle
    testing
+   modules
+   examples
    contributors
 
 
