@@ -17,6 +17,8 @@ Contents:
 
    building
    developing
+   pythonstyle
+   testing
    contributors
 
 
