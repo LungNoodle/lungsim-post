@@ -13,5 +13,8 @@ documentation from doc strings in the module itself. The final step is to expose
 List of modules
 ---------------
 
-#.. toctree::
-#   :maxdepth: 1
+.. toctree::
+   :maxdepth: 1
+
+   modules/imports_and_exports
+   modules/utilities
