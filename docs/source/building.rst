@@ -31,8 +31,8 @@ Once installed the libraries can called from python
 
     import lungsimpost
 
-Install and run (for developing)
-================================
+Install and run (for developing, quickstart)
+============================================
 You can find these libraries on github `here <https://github.com/LungNoodle/lungsim-post>`_.
 
 To use and improve on these code we would like you to be familiar with github and python. If you aren't then we suggest that you look into an online course - there are plenty available via `Software Carpentry <https://software-carpentry.org/>`_ (for example).
