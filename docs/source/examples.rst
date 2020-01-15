@@ -7,5 +7,7 @@ Here we introduce a number of examples that may be helpful in using these module
 List of Examples
 ----------------
 
-#.. toctree::
-#   :maxdepth: 1
+.. toctree::
+   :maxdepth: 1
+
+   examples/example1
