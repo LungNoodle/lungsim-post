@@ -1,44 +1,25 @@
 #!/usr/bin/env python
 import numpy as np
-
+from . import lsp_utilities as ut
 """
 .. module:: imports_and_exports
-  :synopsis: Contains code to read in model results/geometries and to export files that allow visualisation of outputs
-
-:synopsis:Contains code to read in model results/geometries and to export\n
- files that allow visualisation of outputs. Typically these model results \n
- would have been generated using the lungsim libararies
-
+   :synopsis: Provides mechanisms to import model results from lungsim and to subsequently export analysed data to useful formats to visualise
 """
 
 def export_ex_coords(data, groupname, filename, type):
     """
-    :Function name: **export_ex_coords*
+    :Function name: **export_ex_coords**
 
     Exports the x-, y-, z- coordinates of defined data points to the ABI 'ex' format. This could be a .exnode or .exdata file
 
-    :inputs:
-       - data: A 3xN or 4xN array of N data points (if 4 then the datapoints are explicitly numbered)
-       - groupname: For visualisation a text string gives the points a group name so they can be seperated from others
-       - filename: A string defining the file name (no extension)
-       - type: A string, either exnode or exdata
+    :param data: A 3xN or 4xN array of N data point coordinates (if 4 then the datapoints are explicitly numbered)
+    :param groupname: For visualisation a text string gives the points a group name so they can be seperated from others
+    :param filename: A string defining the file name (no extension)
+    :param type: A string, either exnode or exdata
 
-    A way you might want to use me is:
-
-    >>> n = 100
-    >>> volume = 10
-    >>> thickness = 3
-    >>> ellipticity = 1.1
-    >>> equispaced_data_in_ellipsoid(n, volume, thickness, ellipticity)
-
-    This will return 100 data points in an ellipse with z-axis thickness 3, volume 10, and with the y-axis dimension 1.1 times the x-axis dimension.
+    :return: Returns a file named filename.exnode or filename.exdata that can subsequently be read into visualisation tools.
 
     """
-    # Exports coordinates to exnode or exdata format
-    # data = array of data
-    # groupname = what you want your data to be called in cmgui
-    # filename = file name without extension
-    # type = exnode or exdata
     data_length = len(
         data[0])  # if this is 3 then number nodes or data automatically if 4 then node numbers are given as
     # first entry
@@ -67,6 +48,18 @@ def export_ex_coords(data, groupname, filename, type):
 
 
 def export_ex_field(data, groupname, fieldname, filename, type):
+    '''
+    :Function name: **export_ex_field**
+
+    Exports a field value to the ABI 'ex' format. This could be a .exnode or .exdata file. This function assumes that the data is ordered by node/datapoint number.
+
+    :param data: A 1xN array of field values at node or datapoints
+    :param groupname: For visualisation a text string gives the points a group name so they can be seperated from others
+    :param fieldname: For visualisation, a text string that defines the name of the field (i.e. 'flow', 'concentration')
+    :param filename: A string defining the file name (no extension)
+    :param type: A string, either exnode or exdata
+    :return: Returns a file named filename.exnode or filename.exdata that can subsequently be read into visualisation tools.
+    '''
     # Exports coordinates to exnode or exdata format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -88,6 +81,20 @@ def export_ex_field(data, groupname, fieldname, filename, type):
 
 
 def export_nodal_rad_field(data, groupname, fieldname, filename, type, nodes, elems):
+    '''
+    :Function name: **export_nodal_rad_field**
+
+    Description to come
+
+    :param data:
+    :param groupname:
+    :param fieldname:
+    :param filename:
+    :param type:
+    :param nodes:
+    :param elems:
+    :return:
+    '''
     # Exports coordinates to exnode or exdata format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -121,6 +128,16 @@ def export_nodal_rad_field(data, groupname, fieldname, filename, type, nodes, el
 
 
 def export_exelem_1d(data, groupname, filename):
+    '''
+    :Function name: **export_elem_1d**
+
+    Description to come.
+
+    :param data:
+    :param groupname:
+    :param filename:
+    :return:
+    '''
     # Exports element locations to exelem format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -169,6 +186,16 @@ def export_exelem_1d(data, groupname, filename):
 
 
 def export_exelem_3d_linear(data, groupname, filename):
+    '''
+    :Function name: **export_exxelem_3d_linear**
+
+    Description to come.
+
+    :param data:
+    :param groupname:
+    :param filename:
+    :return:
+    '''
     # Exports element locations to exelem format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -272,6 +299,17 @@ def export_exelem_3d_linear(data, groupname, filename):
 
 
 def export_exelem_3d_linear_list(data, list, groupname, filename):
+    '''
+    :Function name: **export_exxelem_3d_linear_list**
+
+    Description to come.
+
+    :param data:
+    :param list:
+    :param groupname:
+    :param filename:
+    :return:
+    '''
     # Exports element locations to exelem format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -377,6 +415,17 @@ def export_exelem_3d_linear_list(data, list, groupname, filename):
 
 
 def export_exfield_3d_linear(data, groupname, fieldname, filename):
+    '''
+    :Function name: **export_exfield_3d_linear**
+
+    Description to come.
+
+    :param data:
+    :param groupname:
+    :param fieldname:
+    :param filename:
+    :return:
+    '''
     # Exports element fields to exelem format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -405,6 +454,18 @@ def export_exfield_3d_linear(data, groupname, fieldname, filename):
 
 
 def export_exfield_3d_linear_list(data, list, groupname, fieldname, filename):
+    '''
+    :Function name: **export_exxelem_3d_linear_list**
+
+    Description to come.
+
+    :param data:
+    :param list:
+    :param groupname:
+    :param fieldname:
+    :param filename:
+    :return:
+    '''
     # Exports element fields to exelem format when data is defined at a specified list of nodes
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -434,6 +495,17 @@ def export_exfield_3d_linear_list(data, list, groupname, fieldname, filename):
 
 
 def export_exfield_1d_linear(data, groupname, fieldname, filename):
+    '''
+    :Function name: **export_exfield_1d_linear**
+
+    Description to come.
+
+    :param data:
+    :param groupname:
+    :param fieldname:
+    :param filename:
+    :return:
+    '''
     # Exports element locations to exelem format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -458,33 +530,36 @@ def export_exfield_1d_linear(data, groupname, fieldname, filename):
     f.close()
 
 
-def import_stemxy(stem_file):
-    # reading in the stem vessel to map the spiral artery location
-    stem_xy = open(stem_file, 'r')
-    stem_coor = stem_xy.readlines()  # readlines
-    startLines = range(0, len(stem_coor))
-
-    for i in range(len(stem_coor)):
-        stem_coor[i] = stem_coor[i].split()
-    stem_xyList = []
-    stem_elemList = []
-    for i in startLines:
-        node = []
-        node.append(float(stem_coor[i][0]))  # x coor of stem villi
-        node.append((float(stem_coor[i][1])))  # y coor of stem villi
-        stem_xyList.append(node)
-        elem = int(stem_coor[i][2]) - 1
-        stem_elemList.append(elem)
-    stem_xy.close()
-
-    return {'stem_xy': stem_xyList, 'elem': stem_elemList}
-
-
 def import_exnode_tree(filename):
+    '''
+    :Function name: **import_exnode_tree**
+
+    Imports an exnode output from a lungsim model, which has a branching tree structure. This could be a lung airway or vascular tree (or any other tree structure).
+
+    :param filename: The full filename (including extension) that you wish to import.
+    :return: Arrays containing the total number of nodes in the tree stucture, and node number and coordinates of that node, plus any nodal fields associated with that node (coordinates are assumed to be included).
+    '''
     # count nodes for check of correct number for the user, plus use in future arrays
     count_node = 0
+
+    # Read in file header to find number of fields
+    with open(filename) as f:
+        while 1:
+            line = f.readline()
+            line_type = line.split()[0]
+
+            line_type1 = line.split("=")#str.split(line)[0]
+            #print(line_type1,line_type1[0])#,int(line_type1[1]))
+            if(line_type1[0] == ' #Fields'):
+                num_fields = int(line_type1[1])
+                break
+            elif not line:
+                break #We are done with the file
+            elif (line_type == 'Node:'): #We should be done with the preamble
+                break
+    num_fields = 3+num_fields#first field is assumed to be coordinates and the rest nodal fields, plus one field for node number
     # Initialise array of node numbers and values
-    node_array = np.empty((0, 7))
+    node_array = np.empty((0, num_fields))
     # open file
     with open(filename) as f:
         # loop through lines of file
@@ -497,23 +572,31 @@ def import_exnode_tree(filename):
             if (line_type == 'Node:'):  # line defines new node
                 count_node = count_node + 1  # count the node
                 count_atribute = 0  # intitalise attributes of the node (coordinates, radius)
-                node_array = np.append(node_array, np.zeros((1, 7)),
+                node_array = np.append(node_array, np.zeros((1, num_fields)),
                                        axis=0)  # initialise a list of attributes for each node
                 node_array[count_node - 1][count_atribute] = int(str.split(line)[1]) - 1
             else:
-                line_num = is_float(line_type)  # checking if the line is a number
+                line_num = ut.is_float(line_type)  # checking if the line is a number
                 if (line_num):  # it is a number
                     if not "index" in line:
                         count_atribute = count_atribute + 1
                         node_array[count_node - 1][count_atribute] = float(str.split(line)[0])
-
-    if (count_atribute < 7):
-        node_array = np.delete(node_array, np.s_[count_atribute + 1:7], axis=1)
+    #The below is just a catch all in case there are not as many fields as expected
+    if ((count_atribute+1) < num_fields):
+        node_array = np.delete(node_array, np.s_[count_atribute + 1:num_fields], axis=1)
     total_nodes = count_node
-    return {'total_nodes': total_nodes, 'nodes': node_array}
+    return {'total_nodes': total_nodes, 'nodes': node_array, 'num_fields': num_fields}
 
 
 def import_exelem_tree(filename):
+    '''
+    :Function name: **import_exelem_tree**
+
+    Imports an exelem output from a lungsim model, which has a branching tree structure. This could be a lung airway or vascular tree (or any other tree structure).
+
+    :param filename: The full filename (including extension) that you wish to import.
+    :return: Arrays containing the total number of elements in the tree stucture, and element number and the two nodes associated with that element
+    '''
     # count element for check of correct number for the user, plus use in future arrays
     count_el = 0
     # Initialise array of el numbers and values
@@ -534,7 +617,7 @@ def import_exelem_tree(filename):
                 el_array = np.append(el_array, np.zeros((1, 3), dtype=int), axis=0)
                 el_array[count_el - 1][count_atribute] = int(str.split(line)[1]) - 1
             else:
-                line_num = is_float(line_type)  # checking if the line is a number
+                line_num = ut.is_float(line_type)  # checking if the line is a number
                 if (line_num):  # it is a number
                     if "#Values" not in line and "l.Lagrange" not in line and "0.1000000000000000E+01" not in line:
                         count_atribute = count_atribute + 1
@@ -546,15 +629,18 @@ def import_exelem_tree(filename):
     return {'total_elems': total_el, 'elems': el_array}
 
 
-def is_float(str):
-    try:
-        num = float(str)
-    except ValueError:
-        return False
-    return True
-
 
 def export_exelem_3d_quadratic(data, groupname, filename):
+    '''
+    :Function name: **export_exelem_3d_quadratic**
+
+    Description to come.
+
+    :param data:
+    :param groupname:
+    :param filename:
+    :return:
+    '''
     # Exports element locations to exelem format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
@@ -838,6 +924,16 @@ def export_exelem_3d_quadratic(data, groupname, filename):
 
 
 def export_exfield_3d_quadratic(data, groupname, fieldname, filename):
+    '''
+    :Function name: **import_exfield_3d quadratic**
+
+    Description to come.
+    :param data:
+    :param groupname:
+    :param fieldname:
+    :param filename:
+    :return:
+    '''
     # Exports element fields to exelem format
     # data = array of data
     # groupname = what you want your data to be called in cmgui
